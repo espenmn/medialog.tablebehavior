@@ -1,0 +1,51 @@
+
+<fieldset>
+	 <input   type="text" placeholder="Type in an address" size=42  name="" class="football">
+	 <input   type="text"  name=""  title="" lang="" disabled=""
+       readonly="" alt="" tabindex="" accesskey="" maxlength=""
+       tal:attributes="id string:${view/id};
+                       name view/name;
+                       class string:${view/klass} place;
+                       style view/style;
+                       title view/title;
+                       lang view/lang;
+                       onclick view/onclick;
+                       ondblclick view/ondblclick;
+                       onmousedown view/onmousedown;
+                       onmouseup view/onmouseup;
+                       onmouseover view/onmouseover;
+                       onmousemove view/onmousemove;
+                       onmouseout view/onmouseout;
+                       onkeypress view/onkeypress;
+                       onkeydown view/onkeydown;
+                       onkeyup view/onkeyup;
+                       value view/value;
+                       disabled view/disabled;
+                       tabindex view/tabindex;
+                       onfocus view/onfocus;
+                       onblur view/onblur;
+                       onchange view/onchange;
+                       readonly view/readonly;
+                       alt view/alt;
+                       accesskey view/accesskey;
+                       onselect view/onselect;
+                       size view/size;
+                       maxlength view/maxlength" />
+
+
+	 <input id="find" type="button" value="find on map" />
+    
+<label>Latitude</label>
+<input type="text" value="" name="lat">
+<label>Longitude</label>
+<input type="text" value="" name="lng">
+<label>Formatted Address</label>
+<input type="text" value="" name="formatted_address">
+ 
+<div class="map_canvas"  ></div>
+
+</fieldset>
+
+
+        
+  
