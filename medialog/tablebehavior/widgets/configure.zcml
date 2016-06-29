@@ -3,25 +3,25 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
 	i18n_domain="medialog.tablebehavior">
 	
-  <class class=".widget.FootballWidget">
+  <class class=".widget.TableWidget">
     <require
         permission="zope.Public"
-        interface="medialog.tablebehavior.widgets.widget.IFootballWidget"
+        interface="medialog.tablebehavior.widgets.widget.ITablelWidget"
         />
   </class>
 
   <!-- this widget is not configured for any field by default -->
   <z3c:widgetTemplate
       mode="display"
-      widget="medialog.tablebehavior.widgets.widget.IFootballWidget"
+      widget="medialog.tablebehavior.widgets.widget.ITableWidget"
       layer="z3c.form.interfaces.IFormLayer"
-      template="footballfield_display.pt" />
+      template="tablefield_display.pt" />
 
   <z3c:widgetTemplate
       mode="input"
-      widget="medialog.tablebehavior.widgets.widget.IFootballWidget"
+      widget="medialog.tablebehavior.widgets.widget.ITableWidget"
       layer="z3c.form.interfaces.IFormLayer"
-      template="footballfield_input.pt" />
+      template="tablefield_input.pt" />
 
 </configure>
 

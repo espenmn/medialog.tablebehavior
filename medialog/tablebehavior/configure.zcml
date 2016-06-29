@@ -6,7 +6,9 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="medialog.tablebehavior">
-    
+
+
+  <i18n:registerTranslations directory="locales" />
     
   <!-- Include configuration for dependencies listed in setup.py -->
   <includeDependencies package="." />
@@ -18,24 +20,17 @@
   <!-- Include behavior -->
   <include file="behaviors.zcml" />
 
-  <!-- Register a resource directory from which we can deploy static
-   resource files. -->
-  <browser:resourceDirectory
-    name="medialog.tablebehavior"
-    directory="resources" />
-
-  <i18n:registerTranslations directory="locales" />
-
-  <!-- Register an extension profile to make the product installable
-       in Plone -->
   <genericsetup:registerProfile
       name="default"
-      title="tablebehavior for Plone"
+      title="Tablebehavior for Plone"
       directory="profiles/default"
       description="Extension profile for tablebehavior for Plone"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
- 
+     <browser:resourceDirectory
+      name="medialog-tablebehavior"
+      directory="static"
+      />
 
 </configure>

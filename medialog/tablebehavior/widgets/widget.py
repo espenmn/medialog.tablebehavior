@@ -7,19 +7,19 @@ from z3c.form import widget
 from z3c.form.browser import text
 
 
-class IFootballWidget(interfaces.IWidget):
-    """Footballfield widget."""
+class ITableWidget(interfaces.IWidget):
+    """tablefield widget."""
 
 
-class FootballWidget(text.TextWidget):
+class TableWidget(text.TextWidget):
     maxlength = 255
     size = 30
     
-    zope.interface.implementsOnly(IFootballWidget)
+    zope.interface.implementsOnly(ITablelWidget)
     
     def javascript(self):
         return ""
 
-def FootballFieldWidget(field, request):
-    """IFieldWidget factory for FootballWidget."""
-    return widget.FieldWidget(field, FootballWidget(request))
+def TableFieldWidget(field, request):
+    """IFieldWidget factory for TableWidget."""
+    return widget.FieldWidget(field, TableWidget(request))

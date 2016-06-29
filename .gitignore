@@ -1,2 +1,18 @@
 
 *.pyc
+
+medialog.tablebehavior.egg-info/top_level.txt
+
+medialog.tablebehavior.egg-info/namespace_packages.txt
+
+medialog.tablebehavior.egg-info/not-zip-safe
+
+medialog.tablebehavior.egg-info/PKG-INFO
+
+medialog.tablebehavior.egg-info/dependency_links.txt
+
+medialog.tablebehavior.egg-info/entry_points.txt
+
+medialog.tablebehavior.egg-info/requires.txt
+
+medialog.tablebehavior.egg-info/SOURCES.txt

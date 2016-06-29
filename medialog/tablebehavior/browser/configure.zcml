@@ -4,24 +4,6 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="medialog.tablebehavior">
 
-  <browser:page
-      for="*"
-      name="tablebehavior_view"
-      class=".tablebehaviorview.TablebehaviorView"
-      template="tablebehaviorview.pt"
-      allowed_interface=".tablebehaviorview.ITablebehaviorView"
-      permission="zope.Public"
-      />
-      
-  <browser:page
-      for="*"
-      name="street_view"
-      class=".tablebehaviorview.TablebehaviorView"
-      template="streetview.pt"
-      allowed_interface=".tablebehaviorview.ITablebehaviorView"
-      permission="zope.Public"
-      />
-
   <browser:viewlet
     name="medialog.tablebehavior"
     manager="plone.app.layout.viewlets.interfaces.IBelowContent"
