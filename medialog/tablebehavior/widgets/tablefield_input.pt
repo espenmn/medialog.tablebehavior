@@ -16,13 +16,10 @@
       width: 32px;
       text-align: center;
     }
-
-  <script src="http://code.cwwonline.be/demo/Content/Libs/syntaxhighlighter-3.0.83/sh.js"></script>
-  <script src="http://code.cwwonline.be/demo/Content/Libs/service.dialog.jquery/service.dialog.jquery.min.js"></script>
-
+ 
 
   </style>
-	<link rel="stylesheet" href="++plone++medialog.tablebehavior/service.flextabledit.jquery.css" />
+	<link rel="stylesheet" href="++resource++medialog-tablebehavior/service.flextabledit.jquery.css" />
     <div id="mytable" />
     <input id="" name="" class="" title="" lang="" disabled=""
            readonly="" alt="" tabindex="" accesskey="" size="" maxlength=""
@@ -56,13 +53,11 @@
                            size view/size;
                            maxlength view/maxlength" />
 
-<script type="text/javascript" src="++plone++medialog.tablebehavior/service.flextabledit.jquery.min.js">
+<script type="text/javascript" src="++resource++medialog-tablebehavior/service.flextabledit.jquery.min.js">
 </script>
 <script type="text/javascript">
 var contentArray = ${view/value};
 $(function () {
-    $('#ownTableUnAvailPrompt').hide();
-    $('#ownTableAvailPrompt').show();
     $('#mytable').flextabledit({
       content: contentArray,
       addTableClass: "myTable",
@@ -70,7 +65,7 @@ $(function () {
     });
   });
 
-$("#generate, #form-buttons-save").click(function(){
+$("#mytable").focusout(function(){
     var contentArray = $('#mytable').flextabledit('getData');
   	if (contentArray.length != 0) {
   		$("h1").hide();

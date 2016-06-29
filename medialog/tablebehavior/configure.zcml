@@ -28,9 +28,4 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-     <browser:resourceDirectory
-      name="medialog-tablebehavior"
-      directory="static"
-      />
-
 </configure>

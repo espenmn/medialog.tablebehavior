@@ -4,12 +4,9 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="medialog.tablebehavior">
 
-  <browser:viewlet
-    name="medialog.tablebehavior"
-    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
-    class=".viewlet.Tablebehavior"
-    for="medialog.tablebehavior.behavior.ITableBehavior"
-    permission="zope2.View"
-    template="viewlet.pt" />
+  <browser:resourceDirectory
+      name="medialog-tablebehavior"
+      directory="static"
+      />
         
 </configure>
