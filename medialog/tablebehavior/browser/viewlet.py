@@ -7,10 +7,11 @@ class Tablebehavior(ViewletBase):
     """nothing here yet"""
 
     @property
-    def construct_url(self):
+    def construct(self):
         """returns the urls that will embed the map """
         
-        return """http://s3.tripgeo.com/dirmap/map.htm?from=%(fromlocation)s&to=%(tolocation)s"""  % {
-        'fromlocation' : self.context.fromlocation,
-        'tolocation'   : self.context.tolocation,
+        return """
+        %(something)s
+        """  % {
+        'somethihng' : self.context.table,
         }

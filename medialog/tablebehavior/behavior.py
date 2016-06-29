@@ -5,31 +5,31 @@ from plone.autoform.interfaces import IFormFieldProvider
 from zope.interface import alsoProvides
 from zope.i18nmessageid import MessageFactory
 
-from medialog.tablebehavior.widgets.widget import FootballFieldWidget
+from medialog.tablebehavior.widgets.widget import TableFieldWidget
 
 _ = MessageFactory('medialog.tablebehavior')
 
 
-class ITableview(form.Schema):
-    """ A field for geodata (to and from)"""
+class ITableBehavior(form.Schema):
+    """ A field for a table (to and from)"""
     
+    form.fieldset(
+        'plotly',
+        label = 'Table',
+        fields=[
+              'table',
+        ],
+     )  
     
-    fromlocation = schema.TextLine(
-        title = _("label_fromlocation", default=u"Starting point"),
-        description = _("help_fromlocation",
-                      default="Choose Startingpoint"),
-    )
-
-    tolocation = schema.TextLine(
-        title = _("label_tolocation", default=u"Finishing point"),
-        description = _("help_tolocation",
-            default="Choose Where to finish"),
-    )
-
+    table = schema.TextLine(
+        title=u'Table',
+        default=u'',
+        required=False,
+    )  
+    
     form.widget(
-            fromlocation=FootballFieldWidget,
-            tolocation=FootballFieldWidget
+            table=TableFieldWidget
     )
 
-alsoProvides(ITableview, IFormFieldProvider)
+alsoProvides(ITableBehavior, IFormFieldProvider)
 

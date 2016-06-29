@@ -8,7 +8,7 @@
    <plone:behavior
         title="Table behavior"
         description="Provides field for a Table"
-        provides=".behavior.ITableview"
+        provides=".behavior.ITableBehavior"
         for="plone.dexterity.interfaces.IDexterityContent"
         />
    

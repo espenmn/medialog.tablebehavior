@@ -1,43 +1,133 @@
-<fieldset>
-	 <input   type="text" placeholder="Type in an address" size=42  name="" class="table">
-	 <input   type="text"  name=""  title="" lang="" disabled=""
-       readonly="" alt="" tabindex="" accesskey="" maxlength=""
-       tal:attributes="id string:${view/id};
-                       name view/name;
-                       class string:${view/klass} place;
-                       style view/style;
-                       title view/title;
-                       lang view/lang;
-                       onclick view/onclick;
-                       ondblclick view/ondblclick;
-                       onmousedown view/onmousedown;
-                       onmouseup view/onmouseup;
-                       onmouseover view/onmouseover;
-                       onmousemove view/onmousemove;
-                       onmouseout view/onmouseout;
-                       onkeypress view/onkeypress;
-                       onkeydown view/onkeydown;
-                       onkeyup view/onkeyup;
-                       value view/value;
-                       disabled view/disabled;
-                       tabindex view/tabindex;
-                       onfocus view/onfocus;
-                       onblur view/onblur;
-                       onchange view/onchange;
-                       readonly view/readonly;
-                       alt view/alt;
-                       accesskey view/accesskey;
-                       onselect view/onselect;
-                       size view/size;
-                       maxlength view/maxlength" />
-
-
-<input type="text" value="" name="table">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag="">
+    <div id="mytable" />
+    
+    <div id="ownTableUnAvailPrompt">
+  <div class="button" onclick="onAddTable(); return false;">Create</div>
+</div>
+<div id="ownTableAvailPrompt" style="display:none;">
+  <div class="button" onclick="onDeleteTable(); return false;">Delete</div>
+</div>
+<div id="ownTable"></div>
+<div style="border-bottom: 1px solid #497981; margin-bottom: 1.833em;">
+  <input id="flextabledit2ChkBox" type="checkbox" />
+  <div id="flextabledit2Tutorial" style="display: none; margin-bottom: 2.0em;">
+    @Html.RenderExtMarkdown("~/Markdown/Demos/FlexTabledit2.md")
+  </div>
+</div>
  
-<div class="formatted-table"></div>
+<div id="createTableDialog" class="dialogPopUp">
+  <div class="closeButton" onclick="javascript: $('#createTableDialog').dialog('close');">
+    <span>X</span>
+  </div>
+  <h2>Initial table size</h2>
+  <div class="sideBySideCols">
+    <div class="leftCol-s" style="width:160px;">
+      <p><b>Number of columns:</b></p>
+    </div>
+    <div class="rightCol">
+      <input id="flxtblNrOfCols" size="4" value="4" />
+    </div>
+  </div>
+  <div class="sideBySideCols">
+    <div class="leftCol-s" style="width:160px;">
+      <p><b>Number of rows:</b></p>
+    </div>
+    <div class="rightCol">
+      <input id="flxtblNrOfRows" size="4" value="10" />
+    </div>
+  </div>
+  <div class="button" style="margin-top:0.833em;" onclick="javascript: onCreateTable();">Create table</div>
+</div>
+    
+    
+    
+    <input id="" name="" class="" title="" lang="" disabled=""
+           readonly="" alt="" tabindex="" accesskey="" size="" maxlength=""
+           style="" value="" type="text"
+           tal:attributes="id view/id;
+                           name view/name;
+                           class view/klass;
+                           style view/style;
+                           title view/title;
+                           lang view/lang;
+                           onclick view/onclick;
+                           ondblclick view/ondblclick;
+                           onmousedown view/onmousedown;
+                           onmouseup view/onmouseup;
+                           onmouseover view/onmouseover;
+                           onmousemove view/onmousemove;
+                           onmouseout view/onmouseout;
+                           onkeypress view/onkeypress;
+                           onkeydown view/onkeydown;
+                           onkeyup view/onkeyup;
+                           value view/value;
+                           disabled view/disabled;
+                           tabindex view/tabindex;
+                           onfocus view/onfocus;
+                           onblur view/onblur;
+                           onchange view/onchange;
+                           readonly view/readonly;
+                           alt view/alt;
+                           accesskey view/accesskey;
+                           onselect view/onselect;
+                           size view/size;
+                           maxlength view/maxlength" />
 
-</fieldset>
+<script type="text/javascript" src="++plone++medialog.tablebehavior/jquery-flextableedit.min.js">
+</script>
+<script type="text/javascript">
+$(function () {
+    var contentArray = [
+        ["Year", "Ford", "Volvo", "Toyota", "Honda", "Remark"],
+        ["2014", 10, 11, 12, 13, '-'],
+        ["2015", 20, 11, 14, 13, "Boston's figures"],
+        ["2016", 30, 15, 12, 13, 'Checked: "7"']
+    ];
+    $('#mytable').flextabledit({
+      content: contentArray,
+      addTableClass: "myTable"
+    });
+  });
+</script>
 
 
-        
-  
+
+<script type="text/javascript">
+  function onAddTable() {
+    $('#createTableDialog').dialog();
+  }
+ 
+  function onCreateTable() {
+    var nrofCols = $('#flxtblNrOfCols').val();
+    if ( nrofCols < 1) nrofCols = 1;
+    var nrofRows = $('#flxtblNrOfRows').val();
+    if ( nrofRows < 1) nrofRows = 1;
+    nrofRows++;
+    $('#createTableDialog').dialog('close');
+    // Init table
+    var content = [];
+    for (var r = 0; r < nrofRows; r++ ) {
+      var row = [];
+      for (var c = 0; c < nrofCols; c++) {
+        row.push("");
+      }
+      content.push(row)
+    }
+    $('#ownTableUnAvailPrompt').hide();
+    $('#ownTableAvailPrompt').show();
+    $('#ownTable').flextabledit({
+      content: content,
+      addTableClass: "myTable",
+      texts: { cut: 'Couper', copy: 'Copier', paste: 'Coller', insert: 'Insérer', remove: 'Supprimer', columnName: 'Nom' }
+    });
+  }
+ 
+  function onDeleteTable() {
+    $('#ownTable').flextabledit('destroy');
+    $('#ownTableAvailPrompt').hide();
+    $('#ownTableUnAvailPrompt').show();
+  }
+</script>
+</html>

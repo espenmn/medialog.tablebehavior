@@ -8,7 +8,7 @@
     name="medialog.tablebehavior"
     manager="plone.app.layout.viewlets.interfaces.IBelowContent"
     class=".viewlet.Tablebehavior"
-    for="medialog.tablebehavior.behavior.ITableview"
+    for="medialog.tablebehavior.behavior.ITableBehavior"
     permission="zope2.View"
     template="viewlet.pt" />
         
