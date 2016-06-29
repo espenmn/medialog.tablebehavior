@@ -23,7 +23,7 @@ class ITableBehavior(form.Schema):
     
     table = schema.TextLine(
         title=u'Table',
-        default=u'',
+        default=u'[["A", "B"], ["A1", "B1"]]',
         required=False,
     )  
     

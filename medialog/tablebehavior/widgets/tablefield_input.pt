@@ -1,51 +1,32 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+ <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag="">
-    <div id="mytable" />
-    
-    <div id="ownTableUnAvailPrompt">
-  <div class="button" onclick="onAddTable(); return false;">Create</div>
-</div>
-<div id="ownTableAvailPrompt" style="display:none;">
-  <div class="button" onclick="onDeleteTable(); return false;">Delete</div>
-</div>
-<div id="ownTable"></div>
-<div style="border-bottom: 1px solid #497981; margin-bottom: 1.833em;">
-  <input id="flextabledit2ChkBox" type="checkbox" />
-  <div id="flextabledit2Tutorial" style="display: none; margin-bottom: 2.0em;">
-    @Html.RenderExtMarkdown("~/Markdown/Demos/FlexTabledit2.md")
-  </div>
-</div>
+
+<style>
+    .syntaxhighlighter {
+      overflow-y: hidden !important;
+      overflow-x: auto !important;
+    }
  
-<div id="createTableDialog" class="dialogPopUp">
-  <div class="closeButton" onclick="javascript: $('#createTableDialog').dialog('close');">
-    <span>X</span>
-  </div>
-  <h2>Initial table size</h2>
-  <div class="sideBySideCols">
-    <div class="leftCol-s" style="width:160px;">
-      <p><b>Number of columns:</b></p>
-    </div>
-    <div class="rightCol">
-      <input id="flxtblNrOfCols" size="4" value="4" />
-    </div>
-  </div>
-  <div class="sideBySideCols">
-    <div class="leftCol-s" style="width:160px;">
-      <p><b>Number of rows:</b></p>
-    </div>
-    <div class="rightCol">
-      <input id="flxtblNrOfRows" size="4" value="10" />
-    </div>
-  </div>
-  <div class="button" style="margin-top:0.833em;" onclick="javascript: onCreateTable();">Create table</div>
-</div>
-    
-    
-    
+    .myTable {
+      background: #f4f6f5;
+    }
+    .myTable th:first-child,
+    .myTable td:first-child {
+      width: 32px;
+      text-align: center;
+    }
+
+  <script src="http://code.cwwonline.be/demo/Content/Libs/syntaxhighlighter-3.0.83/sh.js"></script>
+  <script src="http://code.cwwonline.be/demo/Content/Libs/service.dialog.jquery/service.dialog.jquery.min.js"></script>
+
+
+  </style>
+	<link rel="stylesheet" href="++plone++medialog.tablebehavior/service.flextabledit.jquery.css" />
+    <div id="mytable" />
     <input id="" name="" class="" title="" lang="" disabled=""
            readonly="" alt="" tabindex="" accesskey="" size="" maxlength=""
-           style="" value="" type="text"
+           style="" value="" type="hidden"
            tal:attributes="id view/id;
                            name view/name;
                            class view/klass;
@@ -75,59 +56,31 @@
                            size view/size;
                            maxlength view/maxlength" />
 
-<script type="text/javascript" src="++plone++medialog.tablebehavior/jquery-flextableedit.min.js">
+<script type="text/javascript" src="++plone++medialog.tablebehavior/service.flextabledit.jquery.min.js">
 </script>
 <script type="text/javascript">
+var contentArray = ${view/value};
 $(function () {
-    var contentArray = [
-        ["Year", "Ford", "Volvo", "Toyota", "Honda", "Remark"],
-        ["2014", 10, 11, 12, 13, '-'],
-        ["2015", 20, 11, 14, 13, "Boston's figures"],
-        ["2016", 30, 15, 12, 13, 'Checked: "7"']
-    ];
-    $('#mytable').flextabledit({
-      content: contentArray,
-      addTableClass: "myTable"
-    });
-  });
-</script>
-
-
-
-<script type="text/javascript">
-  function onAddTable() {
-    $('#createTableDialog').dialog();
-  }
- 
-  function onCreateTable() {
-    var nrofCols = $('#flxtblNrOfCols').val();
-    if ( nrofCols < 1) nrofCols = 1;
-    var nrofRows = $('#flxtblNrOfRows').val();
-    if ( nrofRows < 1) nrofRows = 1;
-    nrofRows++;
-    $('#createTableDialog').dialog('close');
-    // Init table
-    var content = [];
-    for (var r = 0; r < nrofRows; r++ ) {
-      var row = [];
-      for (var c = 0; c < nrofCols; c++) {
-        row.push("");
-      }
-      content.push(row)
-    }
     $('#ownTableUnAvailPrompt').hide();
     $('#ownTableAvailPrompt').show();
-    $('#ownTable').flextabledit({
-      content: content,
+    $('#mytable').flextabledit({
+      content: contentArray,
       addTableClass: "myTable",
-      texts: { cut: 'Couper', copy: 'Copier', paste: 'Coller', insert: 'Insérer', remove: 'Supprimer', columnName: 'Nom' }
+      texts: { cut: 'Cut', copy: 'Copyr', paste: 'Paste', insert: 'Insert', remove: 'Delete', columnName: 'Navn' }
     });
-  }
- 
-  function onDeleteTable() {
-    $('#ownTable').flextabledit('destroy');
-    $('#ownTableAvailPrompt').hide();
-    $('#ownTableUnAvailPrompt').show();
-  }
+  });
+
+$("#generate, #form-buttons-save").click(function(){
+    var contentArray = $('#mytable').flextabledit('getData');
+  	if (contentArray.length != 0) {
+  		$("h1").hide();
+    	var jsonContent = JSON.stringify(contentArray);
+    	// Save content
+    	$('#form-widgets-ITableBehavior-table').val( jsonContent );
+  		}
+});
 </script>
+
 </html>
+
+ 

@@ -17,8 +17,8 @@ class TableWidget(text.TextWidget):
     
     zope.interface.implementsOnly(ITableWidget)
     
-    def javascript(self):
-        return ""
+    def tablevalue(self):
+    	return self.value()
 
 def TableFieldWidget(field, request):
     """IFieldWidget factory for TableWidget."""
