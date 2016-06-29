@@ -21,7 +21,7 @@ class ITableBehavior(form.Schema):
         ],
      )  
     
-    table = schema.TextLine(
+    table = schema.Text(
         title=u'Table',
         default=u'[["A", "B"], ["A1", "B1"]]',
         required=False,

@@ -2,23 +2,6 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag="">
 
-<style>
-    .syntaxhighlighter {
-      overflow-y: hidden !important;
-      overflow-x: auto !important;
-    }
- 
-    .myTable {
-      background: #f4f6f5;
-    }
-    .myTable th:first-child,
-    .myTable td:first-child {
-      width: 32px;
-      text-align: center;
-    }
- 
-
-  </style>
 	<link rel="stylesheet" href="++resource++medialog-tablebehavior/service.flextabledit.jquery.css" />
     <div id="mytable" />
     <input id="" name="" class="" title="" lang="" disabled=""
@@ -53,15 +36,20 @@
                            size view/size;
                            maxlength view/maxlength" />
 
-<script type="text/javascript" src="++resource++medialog-tablebehavior/service.flextabledit.jquery.min.js">
+<script type="text/javascript" src="++resource++medialog-tablebehavior/jquery.flextableedit.js">
+
+<script type="text/javascript" src="++resource++medialog-tablebehavior/service_002.js"></script>
+<script type="text/javascript" src="++resource++medialog-tablebehavior/service_003.js"></script>
+<script type="text/javascript" src="++resource++medialog-tablebehavior/service_004.js"></script>
+
+
+
 </script>
 <script type="text/javascript">
 var contentArray = ${view/value};
 $(function () {
     $('#mytable').flextabledit({
       content: contentArray,
-      addTableClass: "myTable",
-      texts: { cut: 'Cut', copy: 'Copyr', paste: 'Paste', insert: 'Insert', remove: 'Delete', columnName: 'Navn' }
     });
   });
 

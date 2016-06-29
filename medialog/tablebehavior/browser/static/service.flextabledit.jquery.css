@@ -1,3 +1,5 @@
+/* @override http://localhost:8080/site/++resource++medialog-tablebehavior/service.flextabledit.jquery.css */
+
 /*!
  * service.table.dialog 1.0.0
  * http://code.cwwonline.be
@@ -5,6 +7,21 @@
  *
  * Created by Jos Huybrighs
  */
+
+.syntaxhighlighter {
+      overflow-y: hidden !important;
+      overflow-x: auto !important;
+    }
+ 
+.myTable th:first-child,
+    .myTable td:first-child {
+      width: 32px;
+      text-align: center;
+    }
+ 
+ .dialogPopUp {
+	background: white;
+}
 
 .flexTableContainer {
   position: relative;
@@ -14,12 +31,19 @@
 .flexTable th,
 .flexTable td {
   position: relative;
+  background: white;
 }
 
 .flexTable th,
 .flexTable td {
   font-size: 0.9em;
   padding: 0.2em 0.3em 0.2em 0.3em;
+
+}
+
+.flexTable th {
+ 
+  background: whitesmoke;
 }
 
 .flexTable th input,
@@ -32,21 +56,20 @@
   cursor: pointer;
 }
 .flexTable td:first-child:hover {
-  background-color: #008751;
-  background-color: #4c6e65;
+  background-color: #e0bb6d;
   color: #f0f0f0;
 }
 
 .flexTable th.flxtblColSelected {
-  background-color: #4c6e65;
-  border-top: 1px solid #4c6e65;
-  border-left: 2px solid #4c6e65;
-  border-right: 2px solid #4c6e65;
+ background-color: #e0bb6d;
+  border-top: 1px solid #e0bb6d;
+  border-left: 2px solid #e0bb6d;
+  border-right: 2px solid #e0bb6d;
 }
 .flexTable th.flxtblColMarked {
-  border-top: 2px dotted #4c6e65;
-  border-left: 2px dotted #4c6e65;
-  border-right: 2px dotted #4c6e65;
+  border-top: 2px dotted #e0bb6d;
+  border-left: 2px dotted #e0bb6d;
+  border-right: 2px dotted #e0bb6d;
 }
 .flexTable td.flxtblColSelected,
 .flexTable td.flxtblRowSelected {
@@ -54,45 +77,45 @@
 }
 .flexTable td:first-child.flxtblRowSelected {
   color: #ffffff;
-  background-color: #4c6e65 !important;
+   background-color: #e0bb6d !important;
 }
 .flexTable td:first-child.flxtblRowSelected {
-  border-left: 2px solid #4c6e65;
-  border-right: 2px solid #4c6e65;
+  border-left: 2px solid #e0bb6d;
+  border-right: 2px solid #e0bb6d;
 }
 .flexTable td:first-child.flxtblRowMarked {
   border-top: none;
   border-bottom: none;
-  border-right: 2px dotted #4c6e65;
+  border-right: 2px dotted #e0bb6d;
 }
 .flexTable td:last-child.flxtblRowSelected {
-  border-right: 2px solid #4c6e65;
+  border-right: 2px solid #e0bb6d;
 }
 .flexTable td:last-child.flxtblRowMarked {
-  border-right: 2px dotted #4c6e65;
+  border-right: 2px dotted #e0bb6d;
 }
 .flexTable td.flxtblRowSelected {
-  border-top: 2px solid #4c6e65;
-  border-bottom: 2px solid #4c6e65;
+  border-top: 2px solid #e0bb6d;
+  border-bottom: 2px solid #e0bb6d;
 }
 .flexTable td.flxtblRowMarked {
-  border-top: 2px dotted #4c6e65;
-  border-bottom: 2px dotted #4c6e65;
+  border-top: 2px dotted #e0bb6d;
+  border-bottom: 2px dotted #e0bb6d;
   background: #e8eae9
 }
 .flexTable td.flxtblColSelected {
-  border-left: 2px solid #4c6e65;
-  border-right: 2px solid #4c6e65;
+  border-left: 2px solid #e0bb6d;
+  border-right: 2px solid #e0bb6d;
 }
 .flexTable td.flxtblColMarked {
-  border-left: 2px dotted #4c6e65;
-  border-right: 2px dotted #4c6e65;
+  border-left: 2px dotted #e0bb6d;
+  border-right: 2px dotted #e0bb6d;
 }
 .flexTable tr:last-child td.flxtblColSelected {
-  border-bottom: 2px solid #4c6e65;
+  border-bottom: 2px solid #e0bb6d;
 }
 .flexTable tr:last-child td.flxtblColMarked {
-  border-bottom: 2px dotted #4c6e65;
+  border-bottom: 2px dotted #e0bb6d;
 }
 .flexTable th.flxtblColSelected input {
   cursor: text;
@@ -100,11 +123,11 @@
 }
 .flexTable td.cellSelected {
   border: 2px solid #008751;
-  border: 2px solid #4c6e65;
+  border: 2px solid #e0bb6d;
 }
 .flexTable td.cellMarked {
   border: 2px dotted #008751;
-  border: 2px dotted #4c6e65;
+  border: 2px dotted #e0bb6d;
 }
 
 .flexTable td span {
@@ -134,7 +157,7 @@
   background: url(/++resource++medialog-tablebehavior/menu-h-24x24.png) 2px 2px no-repeat;
   background-color: #fff;
   border: 1px solid #858585;
-  border: 1px solid #4c6e65;
+  border: 1px solid #e0bb6d;
   position: absolute;
   cursor: pointer;
 }
@@ -148,7 +171,7 @@
   padding: 0 0.833em 0.1em 0.3em;
   display: table;
   border: 1px solid #858585;
-  border: 1px solid #4c6e65;
+  border: 1px solid #e0bb6d;
   position: absolute;
   cursor: pointer;
 }
