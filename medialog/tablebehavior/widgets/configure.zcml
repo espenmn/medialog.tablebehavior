@@ -6,20 +6,20 @@
   <class class=".widget.TableWidget">
     <require
         permission="zope.Public"
-        interface="medialog.tablebehavior.widgets.widget.ITablelWidget"
+        interface=".widget.ITableWidget"
         />
   </class>
 
   <!-- this widget is not configured for any field by default -->
   <z3c:widgetTemplate
       mode="display"
-      widget="medialog.tablebehavior.widgets.widget.ITableWidget"
+      widget=".widget.ITableWidget"
       layer="z3c.form.interfaces.IFormLayer"
       template="tablefield_display.pt" />
 
   <z3c:widgetTemplate
       mode="input"
-      widget="medialog.tablebehavior.widgets.widget.ITableWidget"
+      widget=".widget.ITableWidget"
       layer="z3c.form.interfaces.IFormLayer"
       template="tablefield_input.pt" />
 

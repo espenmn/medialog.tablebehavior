@@ -15,7 +15,7 @@ class TableWidget(text.TextWidget):
     maxlength = 255
     size = 30
     
-    zope.interface.implementsOnly(ITablelWidget)
+    zope.interface.implementsOnly(ITableWidget)
     
     def javascript(self):
         return ""
