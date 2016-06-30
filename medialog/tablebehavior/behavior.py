@@ -25,7 +25,7 @@ class ITableBehavior(form.Schema):
     
     table = schema.Text(
         title=u'Table',
-        default=u'[["A", "B"], ["A1", "B1"]]',
+        default=u'[["A", "B"], [1, 10]]',
         required=False,
     )  
     
