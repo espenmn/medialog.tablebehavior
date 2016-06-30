@@ -1,7 +1,6 @@
  <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       tal:omit-tag="">
-
 	<link rel="stylesheet" href="++resource++medialog-tablebehavior/service.flextabledit.jquery.css" />
     <div id="mytable" />
     <input id="" name="" class="" title="" lang="" disabled=""
@@ -37,12 +36,9 @@
                            maxlength view/maxlength" />
 
 <script type="text/javascript" src="++resource++medialog-tablebehavior/jquery.flextableedit.js">
-
 <script type="text/javascript" src="++resource++medialog-tablebehavior/service_002.js"></script>
 <script type="text/javascript" src="++resource++medialog-tablebehavior/service_003.js"></script>
 <script type="text/javascript" src="++resource++medialog-tablebehavior/service_004.js"></script>
-
-
 
 </script>
 <script type="text/javascript">
@@ -51,16 +47,15 @@ $(function () {
     $('#mytable').flextabledit({
       content: contentArray,
     });
-  });
+});
 
 $("#mytable").focusout(function(){
     var contentArray = $('#mytable').flextabledit('getData');
   	if (contentArray.length != 0) {
-  		$("h1").hide();
     	var jsonContent = JSON.stringify(contentArray);
     	// Save content
-    	$('#form-widgets-ITableBehavior-table').val( jsonContent );
-  		}
+    	$('#form-widgets-ITableBehavior-table, #form-widgets-IPieBehavior-table').val( jsonContent );
+  	}
 });
 </script>
 
