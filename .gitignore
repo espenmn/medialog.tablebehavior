@@ -16,3 +16,5 @@ medialog.tablebehavior.egg-info/entry_points.txt
 medialog.tablebehavior.egg-info/requires.txt
 
 medialog.tablebehavior.egg-info/SOURCES.txt
+
+*.zip
